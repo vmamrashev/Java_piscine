@@ -2,12 +2,19 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int input = 0;
-        if (sc.hasNextInt()){
-            input = sc.nextInt();
+        Scanner sc = null;
+        try {
+            sc = new Scanner(System.in);
+            int input = 0;
+            if (sc.hasNextInt()){
+                input = sc.nextInt();
+            }
+            System.out.println(isPrime(input));
+        } finally {
+            if (sc != null) {
+                sc.close(); 
+            }
         }
-        System.out.println(isPrime(input));
     }
 
     static boolean isPrime(int n){
