@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
+
         Scanner sc = null;
         try {
             sc = new Scanner(System.in);
@@ -11,26 +12,25 @@ public class Program {
             }
             if (input < 2) {
                 System.err.println("Illegal Argument!");
+                System.exit(-1);
             }
             else {
-            System.out.println(isPrime(input));
+                int d = 3;
+                int iterationCounter = 1;
+                boolean isPrime = false;
+                    if (input % 2 != 0){
+                        while (d * d <= input && input % d !=0) {
+                            d += 2;
+                            iterationCounter++;
+                        }
+                    }    
+                isPrime = d * d > input;
+                System.out.println(isPrime + " " + iterationCounter);
             }
         } finally {
             if (sc != null) {
                 sc.close(); 
             }
         }
-    }
-
-    static boolean isPrime(int n){
-        if (n%2 == 0 || n == 1) {
-            return n == 2;
-        }
-
-        int d = 3;
-        while (d * d <= n && n % d !=0) {
-            d += 2;
-        }
-        return d * d > n;
     }
 }
