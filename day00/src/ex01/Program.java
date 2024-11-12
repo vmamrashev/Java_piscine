@@ -9,7 +9,12 @@ public class Program {
             if (sc.hasNextInt()){
                 input = sc.nextInt();
             }
+            if (input < 2) {
+                System.err.println("Illegal Argument!");
+            }
+            else {
             System.out.println(isPrime(input));
+            }
         } finally {
             if (sc != null) {
                 sc.close(); 
