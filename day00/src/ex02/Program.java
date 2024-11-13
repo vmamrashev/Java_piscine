@@ -21,7 +21,7 @@ public class Program {
                 sc.close(); 
             }
         }
-        System.out.println("Count of coffee-request – " + count);
+        System.out.println("Count of coffee-request - " + count);
     }
 
     static boolean isPrime(int n){
