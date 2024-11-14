@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Program {
     public static void main(String[] args) throws IOException {
         Scanner sc = null;
-        int countOfInputsLeft = 2;
+        int countOfInputsLeft = 18;
         boolean timeToStop = false;
         String currentWeekInput = "";
         String gradesInput = "";
