@@ -6,31 +6,27 @@ import java.util.Scanner;
 public class Program {
     public static void main(String[] args) throws IOException{
         Scanner sc = null;
-        int countOfInputsLeft = 18;
-        String inputString = "";
+        int countOfInputsLeft = 2;
+        boolean timeToStop = false;
         String currentWeekInput ="";
         String gradesInput ="";
         String previouseWeekInput ="";
         HashMap<String, String> weeksAndGrades = new HashMap<>();
-        ///////////////////////
-        //currentWeekInput ="Week 1";
-        //gradesInput ="11 12 13 14 10 12 15 16";
-        //weeksAndGrades.put(currentWeekInput, gradesInput);
-        //printStatistics(weeksAndGrades);
-        ///////////////////////
-        
+
         try {
             sc = new Scanner(System.in);
-            while (!inputString.equals("42") & countOfInputsLeft > 1) {
+            while (!timeToStop) {
                 if (sc.hasNextLine()) currentWeekInput = sc.nextLine();
+                if (currentWeekInput.equals("42")) break;
                 if (sc.hasNextLine()) gradesInput = sc.nextLine();
                 if (!correctOrderOfWeeks(currentWeekInput, previouseWeekInput)){
                     System.err.println("Illegal Argument!");
                     System.exit(-1);
                 }
                 weeksAndGrades.put(currentWeekInput, gradesInput);
-                previouseWeekInput = currentWeekInput;
                 countOfInputsLeft--;
+                if (countOfInputsLeft < 1) timeToStop = true;
+                previouseWeekInput = currentWeekInput;
             }
 
         } finally {
